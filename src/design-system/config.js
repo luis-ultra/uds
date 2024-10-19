@@ -1,4 +1,4 @@
-// https://styledictionary.com/reference/config/
+// Style Dictionary docs: https://styledictionary.com/reference/config/
 export default {
   source: ['./src/design-system/tokens/*.json'],
   platforms: {
@@ -13,6 +13,7 @@ export default {
     },
     css: {
       transformGroup: 'css',
+      transforms: ['size/px', 'fixFontWeight'],
       buildPath: 'src/design-system/nebula/',
       files: [
         {

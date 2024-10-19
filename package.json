@@ -7,7 +7,7 @@
     "dev": "vite",
     "dev:scss": "sass --watch ./src/scss/_index.scss ./dist/assets/sass-output.css",
     "build": "vite build",
-    "build:tokens": "style-dictionary build --config ./src/design-system/style-dictionary.config.js",
+    "build:tokens": "node ./src/design-system/build.js",
     "preview": "vite preview"
   },
   "dependencies": {
