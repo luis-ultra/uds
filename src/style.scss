@@ -1,4 +1,5 @@
 @use './design-system/nebula/scss/tokens';
+@use './scss';
 
 :root {
   background-color: tokens.$color-background-main;

@@ -1,0 +1,36 @@
+@use '../config';
+@use '../../design-system/nebula/scss/tokens.scss';
+
+@mixin declare-font-faces() {
+  $fonts-assets: (
+    ('Roboto Mono', 'RobotoMono-Regular.ttf', 'truetype'),
+    ('Ultra Brand', 'Ultra_Brand_Font.otf', 'opentype'),
+    ('Ultra Icons', 'UltraIcons-VF.ttf', 'truetype'),
+    ('Ultra Work Sans Italic', 'UltraWorkSans-Italic-VariableFont_wght.ttf', 'truetype'),
+    ('Ultra Work Sans', 'UltraWorkSans-VariableFont_wght.ttf', 'truetype')
+  );
+
+  @each $font-name, $font-file, $font-type in $fonts-assets {
+    @font-face {
+      font-family: $font-name;
+      src: url('./fonts/#{$font-file}') format($font-type);
+    }
+  }
+}
+
+// Typography font utilities
+@mixin create-typography-classes() {
+  @each $family-key, $family-value in map-get(tokens.$tokens, 'typography', 'font', 'family') {
+    @each $weight-key, $weight-value in map-get(tokens.$tokens, 'typography', 'font', 'weight') {
+      .typography-#{$family-key}-#{$weight-key} {
+        font-family: $family-value, sans-serif;
+        line-height: map-get(tokens.$tokens, 'typography', 'font', 'line-height', $family-key);
+        font-size: map-get(tokens.$tokens, 'typography', 'font', 'size', $family-key);
+        letter-spacing: map-get(tokens.$tokens, 'typography', 'font', 'letter-spacing', $family-key);
+        font-weight: $weight-value;
+      }
+
+      // todo: add variants for different screen sizes
+    }
+  }
+}
