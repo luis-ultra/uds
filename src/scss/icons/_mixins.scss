@@ -1,0 +1,27 @@
+@use '../config';
+@use '../../design-system/nebula/scss/tokens.scss';
+
+@mixin create-icon-classes() {
+  $icons-assets: map-get(tokens.$tokens, 'content', 'icon-glyph');
+  @each $icon-key, $icon-name in $icons-assets {
+    .#{config.$prefix}icon-#{$icon-name}::before {
+      font-family: '#{tokens.$iconography-font-family-icon}';
+      content: '#{$icon-name}';
+    }
+  }
+
+  $icon-sizes: map-get(tokens.$tokens, 'iconography', 'font', 'size');
+  @each $icon-size-key, $icon-size-value in $icon-sizes {
+    .#{config.$prefix}icon-size-#{$icon-size-key}::before {
+      font-size: $icon-size-value;
+      line-height: $icon-size-value;
+    }
+  }
+
+  $icon-weights: map-get(tokens.$tokens, 'iconography', 'font', 'weight');
+  @each $icon-weight-key, $icon-weight-value in $icon-weights {
+    .#{config.$prefix}icon-weight-#{$icon-weight-key}::before {
+      font-weight: '#{$icon-weight-value}';
+    }
+  }
+}

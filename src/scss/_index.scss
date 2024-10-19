@@ -1,6 +1,7 @@
 @use '../design-system/nebula/scss/tokens.scss';
 @use 'config';
 @use 'fonts';
+@use 'icons';
 @use 'utilities' as utils;
 
 // Bootstrap docs: https://getbootstrap.com/docs/5.3/customize/sass/#importing
@@ -55,3 +56,4 @@ $utilities: utils.$utilities;
 }
 
 @include fonts.create-typography-classes();
+@include icons.create-icon-classes();
