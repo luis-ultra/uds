@@ -1,4 +1,3 @@
-@use 'design-system/nebula/scss/tokens';
 @use 'scss';
 
 // Bootstrap docs: https://getbootstrap.com/docs/5.3/customize/sass/#importing
@@ -17,7 +16,7 @@ $grid-breakpoints: (
   xl: 1600px,
 );
 $container-max-widths: map-remove($grid-breakpoints, 'xs');
-$grid-gutter-width: tokens.$spacing-spacing-16;
+$grid-gutter-width: scss.$spacing-spacing-16;
 
 @include scss.declare-font-faces();
 
@@ -53,10 +52,10 @@ $utilities: scss.$utilities;
 @include scss.create-icon-classes();
 
 :root {
-  background-color: tokens.$color-background-main;
+  background-color: scss.$color-background-main;
 }
 
 .container-md,
 .container-sm {
-  --#{$prefix}gutter-x: #{tokens.$spacing-spacing-8};
+  --#{$prefix}gutter-x: #{scss.$spacing-spacing-8};
 }
