@@ -1,0 +1,30 @@
+@use '../config';
+@use '../../design-system/nebula/scss/tokens.scss';
+
+/// Applies interactive surface background colors based on the specified group and type.
+///
+/// This mixin generates background color styles for different interactive states
+/// (e.g., hover, active, selected, disabled, enabled) of a surface element.
+///
+/// @param {String} $group - The group of interactive surface colors (e.g., 'solid', 'transparent', 'ghost').
+/// @param {String} $type - The type of interactive surface within the group (e.g., 'purple', 'red', 'white').
+///
+/// @example scss
+///   .button {
+///     @include interactive-surface-bg('solid', 'purple');
+///   }
+@mixin interactive-surface-bg($group, $type) {
+  $interactive-surfaces: map-get(tokens.$tokens, 'colors', 'interactive-surface', $group, $type);
+  @each $interactive-surface-key, $interactive-surface-value in $interactive-surfaces {
+    @if $interactive-surface-key == 'disabled' {
+      &:#{$interactive-surface-key},
+      &[#{$interactive-surface-key}] {
+        background-color: $interactive-surface-value;
+      }
+    } @else {
+      &:#{$interactive-surface-key} {
+        background-color: $interactive-surface-value;
+      }
+    }
+  }
+}
