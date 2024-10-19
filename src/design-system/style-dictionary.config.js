@@ -3,7 +3,7 @@ export default {
   source: ['./src/design-system/tokens/*.json'],
   platforms: {
     json: {
-      buildPath: 'src/design-system/build/',
+      buildPath: 'src/design-system/nebula/',
       files: [
         {
           destination: 'tokens.json',
@@ -13,14 +13,14 @@ export default {
     },
     css: {
       transformGroup: 'css',
-      buildPath: 'src/design-system/build/',
+      buildPath: 'src/design-system/nebula/',
       files: [
         {
           destination: 'css/tokens.css',
           format: 'css/variables',
         },
         {
-          destination: 'sass/_tokens.scss',
+          destination: 'scss/tokens.scss',
           format: 'scss/map-deep',
         },
       ],
