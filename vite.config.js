@@ -18,6 +18,16 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    minify: false, // Disable minification
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js', // No hash for JS files
+        chunkFileNames: '[name].js', // No hash for chunk files
+        assetFileNames: '[name].[ext]', // No hash for CSS and other assets
+      },
+    },
+  },
   histoire: {
     plugins: [HstVue()],
     setupFile: './src/histoire.setup.ts',
