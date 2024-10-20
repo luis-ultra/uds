@@ -48,12 +48,9 @@ $utilities: scss.$utilities;
 // Add custom styles here
 @import 'design-system/nebula/css/tokens'; // css variables
 
+@include scss.reset-theme-nebula();
 @include scss.create-typography-classes();
 @include scss.create-icon-classes();
-
-:root {
-  background-color: scss.$color-background-main;
-}
 
 .container-md,
 .container-sm {
