@@ -37,7 +37,8 @@ $grid-gutter-width: scss.$spacing-spacing-16;
 // @import '../node_modules/bootstrap/scss/images';
 // @import '../node_modules/bootstrap/scss/containers';
 @import './scss/custom/bootstrap/containers'; // custom containers
-@import '../node_modules/bootstrap/scss/grid';
+// @import '../node_modules/bootstrap/scss/grid';
+@import './scss/custom/bootstrap/grid'; // custom grid
 // @import '../node_modules/bootstrap/scss/helpers';
 
 // Override bootstrap utilities
