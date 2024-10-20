@@ -35,7 +35,8 @@ $grid-gutter-width: scss.$spacing-spacing-16;
 // @import '../node_modules/bootstrap/scss/reboot';
 // @import '../node_modules/bootstrap/scss/type';
 // @import '../node_modules/bootstrap/scss/images';
-@import '../node_modules/bootstrap/scss/containers';
+// @import '../node_modules/bootstrap/scss/containers';
+@import './scss/custom/bootstrap/containers'; // custom containers
 @import '../node_modules/bootstrap/scss/grid';
 // @import '../node_modules/bootstrap/scss/helpers';
 
@@ -51,8 +52,3 @@ $utilities: scss.$utilities;
 @include scss.reset-theme-nebula();
 @include scss.create-typography-classes();
 @include scss.create-icon-classes();
-
-.container-md,
-.container-sm {
-  --#{$prefix}gutter-x: #{scss.$spacing-spacing-8};
-}
