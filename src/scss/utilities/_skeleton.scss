@@ -1,0 +1,31 @@
+@use '../config';
+@use '../../design-system/nebula/scss/tokens.scss';
+
+@mixin create-skeleton-classes {
+  $sizes: (
+    '25': 25%,
+    '50': 50%,
+    '75': 75%,
+  );
+  .#{config.$prefix}skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    width: 100%;
+    height: 1lh;
+    border-radius: map-get(tokens.$tokens, 'radius', 'radius', '2');
+
+    @each $size, $value in $sizes {
+      &-#{$size} {
+        width: $value;
+      }
+    }
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-color: tokens.$primitive-color-white-10;
+    }
+    100% {
+      background-color: tokens.$primitive-color-white-5;
+    }
+  }
+}

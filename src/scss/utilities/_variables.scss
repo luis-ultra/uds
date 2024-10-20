@@ -233,6 +233,28 @@ $utilities: (
         ),
     ),
 
+  // Materials
+  // todo: values are not in tokens
+  'shadows':
+    (
+      property: box-shadow,
+      class: #{config.$prefix}shadow,
+      values: (
+        sm: '0px 4px 8px 0px rgba(0, 0, 0, 0.25), 0px 0px 4px 0px rgba(0, 0, 0, 0.12)',
+        md: '0px 8px 16px 0px rgba(0, 0, 0, 0.25), 0px 4px 8px 0px rgba(0, 0, 0, 0.12)',
+        lg: '0px 16px 32px 0px rgba(0, 0, 0, 0.25), 0px 8px 16px 0px rgba(0, 0, 0, 0.12)',
+      ),
+    ),
+  'blurs': (
+    property: backdrop-filter,
+    class: #{config.$prefix}blur,
+    values: (
+      '32': blur(32px),
+      '128': blur(128px),
+      '256': blur(256px),
+    ),
+  ),
+
   // Bootstrap utilities
   // node_modules/bootstrap/scss/_utilities.scss
   'text-align':
