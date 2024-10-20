@@ -1,7 +1,9 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import ButtonComponent from './components/ButtonComponent.vue'
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <ButtonComponent>
+    <span>Click me</span>
+  </ButtonComponent>
 </template>
