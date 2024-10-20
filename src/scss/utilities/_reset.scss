@@ -65,7 +65,7 @@
     font: inherit;
   }
 
-  body {
+  :root {
     color-scheme: dark;
     color: tokens.$color-text-primary;
     background-color: tokens.$color-background-main;

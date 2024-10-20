@@ -8,7 +8,10 @@
     "dev:scss": "sass --watch ./src/style.scss ./dist/assets/sass-output.css",
     "build": "vite build",
     "build:tokens": "node ./src/design-system/build.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
@@ -16,11 +19,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",
+    "@histoire/plugin-vue": "^0.17.17",
     "@vitejs/plugin-vue": "^5.1.4",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.29.0",
     "globals": "^15.11.0",
+    "histoire": "^0.17.17",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "sass": "^1.80.0",

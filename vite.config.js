@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
+import { HstVue } from '@histoire/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,5 +17,9 @@ export default defineConfig({
         api: 'modern-compiler',
       },
     },
+  },
+  histoire: {
+    plugins: [HstVue()],
+    setupFile: './src/histoire.setup.ts',
   },
 })

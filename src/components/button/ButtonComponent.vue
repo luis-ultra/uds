@@ -29,17 +29,24 @@ const { theme, size, direction } = defineProps({
     default: 'horizontal',
     validator: (value) => ['horizontal', 'vertical'].includes(value),
   },
+  isIcon: {
+    type: Boolean,
+    default: false,
+  },
 })
 </script>
 
 <template>
-  <button type="button" :class="['uds-btn', `uds-btn--${theme}`, `uds-btn--${size}`, `uds-btn--${direction}`]">
+  <button
+    type="button"
+    :class="['uds-btn', `uds-btn--${theme}`, `uds-btn--${size}`, `uds-btn--${direction}`, { 'uds-btn--icon': isIcon }]"
+  >
     <slot />
   </button>
 </template>
 
 <style lang="scss">
-@use '../scss';
+@use '@/scss';
 
 .#{scss.$prefix}btn {
   border: none;
