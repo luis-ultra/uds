@@ -1,6 +1,8 @@
 @use '../config';
 @use '../../design-system/nebula/scss/tokens.scss';
 
+$spacing-map: map-get(tokens.$tokens, 'spacing', 'spacing');
+
 // Bootstrap docs: https://getbootstrap.com/docs/5.3/utilities/api/
 $utilities: (
   // Background colors
@@ -47,72 +49,156 @@ $utilities: (
     (
       property: margin,
       class: m,
-      values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+      values:
+        map-merge(
+          $spacing-map,
+          (
+            auto: auto,
+          )
+        ),
     ),
   'margin-x': (
     property: margin-right margin-left,
     class: mx,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'margin-y': (
     property: margin-top margin-bottom,
     class: my,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'margin-top': (
     property: margin-top,
     class: mt,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
-  'margin-right': (
+  'margin-end': (
     property: margin-right,
     class: me,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'margin-bottom': (
     property: margin-bottom,
     class: mb,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
-  'margin-left': (
+  'margin-start': (
     property: margin-left,
     class: ms,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'padding': (
     property: padding,
     class: p,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'padding-x': (
     property: padding-right padding-left,
     class: px,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'padding-y': (
     property: padding-top padding-bottom,
     class: py,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'padding-top': (
     property: padding-top,
     class: pt,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
-  'padding-right': (
+  'padding-end': (
     property: padding-right,
     class: pe,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
   'padding-bottom': (
     property: padding-bottom,
     class: pb,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
-  'padding-left': (
+  'padding-start': (
     property: padding-left,
     class: ps,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values:
+      map-merge(
+        $spacing-map,
+        (
+          auto: auto,
+        )
+      ),
   ),
 
   // Gap utilities
@@ -134,10 +220,235 @@ $utilities: (
   ),
 
   // Border radius
-  'border-radius':
+  'rounded':
     (
       property: border-radius,
       class: rounded,
-      values: map-get(tokens.$tokens, 'radius', 'radius'),
+      values:
+        map-merge(
+          map-get(tokens.$tokens, 'radius', 'radius'),
+          (
+            circle: 50%,
+          )
+        ),
+    ),
+
+  // Bootstrap utilities
+  // node_modules/bootstrap/scss/_utilities.scss
+  'text-align':
+    (
+      responsive: true,
+      property: text-align,
+      class: text,
+      values: (
+        start: left,
+        end: right,
+        center: center,
+      ),
+    ),
+  // Flex utilities
+  // scss-docs-start utils-flex
+  'flex':
+    (
+      responsive: true,
+      property: flex,
+      values: (
+        fill: 1 1 auto,
+      ),
+    ),
+  'flex-direction': (
+    responsive: true,
+    property: flex-direction,
+    class: flex,
+    values: row column row-reverse column-reverse,
+  ),
+  'flex-grow': (
+    responsive: true,
+    property: flex-grow,
+    class: flex,
+    values: (
+      grow-0: 0,
+      grow-1: 1,
+    ),
+  ),
+  'flex-shrink': (
+    responsive: true,
+    property: flex-shrink,
+    class: flex,
+    values: (
+      shrink-0: 0,
+      shrink-1: 1,
+    ),
+  ),
+  'flex-wrap': (
+    responsive: true,
+    property: flex-wrap,
+    class: flex,
+    values: wrap nowrap wrap-reverse,
+  ),
+  'justify-content': (
+    responsive: true,
+    property: justify-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      around: space-around,
+      evenly: space-evenly,
+    ),
+  ),
+  'align-items': (
+    responsive: true,
+    property: align-items,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  'align-content': (
+    responsive: true,
+    property: align-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      around: space-around,
+      stretch: stretch,
+    ),
+  ),
+  'align-self': (
+    responsive: true,
+    property: align-self,
+    values: (
+      auto: auto,
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  'order': (
+    responsive: true,
+    property: order,
+    values: (
+      first: -1,
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      last: 6,
+    ),
+  ),
+  // Sizing utilities
+  // scss-docs-start utils-sizing
+  'width':
+    (
+      property: width,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+      ),
+    ),
+  'max-width': (
+    property: max-width,
+    class: mw,
+    values: (
+      100: 100%,
+    ),
+  ),
+  'viewport-width': (
+    property: width,
+    class: vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  'min-viewport-width': (
+    property: min-width,
+    class: min-vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  'height': (
+    property: height,
+    class: h,
+    values: (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto,
+    ),
+  ),
+  'max-height': (
+    property: max-height,
+    class: mh,
+    values: (
+      100: 100%,
+    ),
+  ),
+  'viewport-height': (
+    property: height,
+    class: vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+  'min-viewport-height': (
+    property: min-height,
+    class: min-vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+  // scss-docs-start utils-display
+  'display':
+    (
+      responsive: true,
+      print: true,
+      property: display,
+      class: d,
+      values: inline inline-block block grid inline-grid table table-row table-cell flex inline-flex none,
+    ),
+  // scss-docs-start utils-overflow
+  'overflow':
+    (
+      property: overflow,
+      values: auto hidden visible scroll,
+    ),
+  'overflow-x': (
+    property: overflow-x,
+    values: auto hidden visible scroll,
+  ),
+  'overflow-y': (
+    property: overflow-y,
+    values: auto hidden visible scroll,
+  ),
+  // Object Fit utilities
+  // scss-docs-start utils-object-fit
+  'object-fit':
+    (
+      responsive: true,
+      property: object-fit,
+      values: (
+        contain: contain,
+        cover: cover,
+        fill: fill,
+        scale: scale-down,
+        none: none,
+      ),
     )
 );
