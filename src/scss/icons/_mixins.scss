@@ -3,25 +3,33 @@
 
 @mixin create-icon-classes() {
   $icons-assets: map-get(tokens.$tokens, 'content', 'icon-glyph');
-  @each $icon-key, $icon-name in $icons-assets {
-    .#{config.$prefix}icon-#{$icon-name}::before {
-      font-family: '#{tokens.$iconography-font-family-icon}';
-      content: '#{$icon-name}';
-    }
-  }
 
-  $icon-sizes: map-get(tokens.$tokens, 'iconography', 'font', 'size');
-  @each $icon-size-key, $icon-size-value in $icon-sizes {
-    .#{config.$prefix}icon-size-#{$icon-size-key}::before {
-      font-size: $icon-size-value;
-      line-height: $icon-size-value;
-    }
-  }
+  .#{config.$prefix}icon {
+    font-family: '#{tokens.$iconography-font-family-icon}';
+    font-style: normal;
 
-  $icon-weights: map-get(tokens.$tokens, 'iconography', 'font', 'weight');
-  @each $icon-weight-key, $icon-weight-value in $icon-weights {
-    .#{config.$prefix}icon-weight-#{$icon-weight-key}::before {
-      font-weight: '#{$icon-weight-value}';
+    // Icon names
+    @each $icon-key, $icon-name in $icons-assets {
+      &-#{$icon-name}::before {
+        content: '#{$icon-name}';
+      }
+    }
+
+    // Icon sizes
+    $icon-sizes: map-get(tokens.$tokens, 'iconography', 'font', 'size');
+    @each $icon-size-key, $icon-size-value in $icon-sizes {
+      &--#{$icon-size-key}::before {
+        font-size: $icon-size-value;
+        line-height: $icon-size-value;
+      }
+    }
+
+    // Icon weights
+    $icon-weights: map-get(tokens.$tokens, 'iconography', 'font', 'weight');
+    @each $icon-weight-key, $icon-weight-value in $icon-weights {
+      &--#{$icon-weight-key}::before {
+        font-weight: '#{$icon-weight-value}';
+      }
     }
   }
 }

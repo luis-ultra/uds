@@ -13,7 +13,7 @@
   @each $font-name, $font-file, $font-type in $fonts-assets {
     @font-face {
       font-family: $font-name;
-      src: url('./fonts/#{$font-file}') format($font-type);
+      src: url('/assets/fonts/#{$font-file}') format($font-type);
     }
   }
 }

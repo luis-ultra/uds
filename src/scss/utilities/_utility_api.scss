@@ -1,0 +1,21 @@
+@mixin get-utility($utility, $value) {
+  $properties: map-get($utility, property);
+  $values: map-get($utility, values);
+
+  // Check if the value exists in the values map
+  $property-value: map-get($values, $value);
+
+  // If properties are a string, convert to a list
+  @if type-of($properties) == 'string' {
+    $properties: append((), $properties);
+  }
+
+  // Generate CSS properties with the corresponding value
+  @each $property in $properties {
+    #{$property}: $property-value;
+  }
+}
+
+// Example usage
+// Based on the utilities map: src/scss/utilities/_variables.scss
+// @include get-utility(map-get($utilities, 'margin-x'), '2');
