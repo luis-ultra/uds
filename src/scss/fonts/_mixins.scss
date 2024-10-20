@@ -23,14 +23,18 @@
   @each $family-key, $family-value in map-get(tokens.$tokens, 'typography', 'font', 'family') {
     @each $weight-key, $weight-value in map-get(tokens.$tokens, 'typography', 'font', 'weight') {
       .typography-#{$family-key}-#{$weight-key} {
-        font-family: $family-value, sans-serif;
-        line-height: map-get(tokens.$tokens, 'typography', 'font', 'line-height', $family-key);
-        font-size: map-get(tokens.$tokens, 'typography', 'font', 'size', $family-key);
-        letter-spacing: map-get(tokens.$tokens, 'typography', 'font', 'letter-spacing', $family-key);
-        font-weight: $weight-value;
+        @include typography($family-key, $weight-key);
       }
-
-      // todo: add variants for different screen sizes
     }
   }
+}
+
+@mixin typography($font-family, $font-weight) {
+  font-family: map-get(tokens.$tokens, 'typography', 'font', 'family', $font-family);
+  line-height: map-get(tokens.$tokens, 'typography', 'font', 'line-height', $font-family);
+  font-size: map-get(tokens.$tokens, 'typography', 'font', 'size', $font-family);
+  letter-spacing: map-get(tokens.$tokens, 'typography', 'font', 'letter-spacing', $font-family);
+  font-weight: map-get(tokens.$tokens, 'typography', 'font', 'weight', $font-weight);
+
+  // todo: add variants for different screen sizes
 }
