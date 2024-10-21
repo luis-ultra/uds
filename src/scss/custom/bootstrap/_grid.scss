@@ -19,7 +19,7 @@
 
       @if $grid-row-columns > 0 {
         @for $i from 1 through $grid-row-columns {
-          .row-cols#{$infix}-#{$i} {
+          .#{$prefix}row-cols#{$infix}-#{$i} {
             @include row-cols($i);
           }
         }
