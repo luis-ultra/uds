@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:scss": "sass --watch ./src/style.scss ./dist/assets/sass-output.css",
     "build": "vite build",
-    "build:tokens": "node ./src/design-system/build.js",
     "preview": "vite preview",
+    "tokens:build": "node ./src/design-system/build.js",
+    "scss:dev": "sass --watch ./src/style.scss ./dist/assets/sass-output.css",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview"
