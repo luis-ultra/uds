@@ -1,4 +1,5 @@
 <script setup>
+// the ".ce.vue" suffix is used to define a custom element
 const { theme, size, direction } = defineProps({
   theme: {
     type: String,
