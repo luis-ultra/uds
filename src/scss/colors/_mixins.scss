@@ -15,7 +15,8 @@
 ///   }
 @mixin interactive-surface-bg($group, $type) {
   $interactive-surfaces: map-get(tokens.$tokens, 'color', 'interactive-surface', $group, $type);
-  @each $interactive-surface-key, $interactive-surface-value in $interactive-surfaces {
+  background-color: map-get($interactive-surfaces, 'enabled');
+  @each $interactive-surface-key, $interactive-surface-value in map-remove($interactive-surfaces, 'enabled') {
     @if $interactive-surface-key == 'disabled' {
       &:#{$interactive-surface-key},
       &[#{$interactive-surface-key}] {
