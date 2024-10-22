@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { defineCustomElement } from 'vue'
-import ButtonComponent from './components/button/ButtonComponent.ce.vue'
+import ButtonComponent from '@/components/button/ButtonComponent.ce.vue'
 
 customElements.define('uds-button', defineCustomElement(ButtonComponent))
 </script>

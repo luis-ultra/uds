@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 // the ".ce.vue" suffix is used to define a custom element
 const { theme, size, direction } = defineProps({
   theme: {
     type: String,
     default: 'fill-purple',
-    validator: (value) =>
+    validator: (value: string) =>
       [
         'fill-purple',
         'fill-white',
@@ -23,12 +23,12 @@ const { theme, size, direction } = defineProps({
   size: {
     type: String,
     default: 'md',
-    validator: (value) => ['sm', 'md', 'lg'].includes(value),
+    validator: (value: string) => ['sm', 'md', 'lg'].includes(value),
   },
   direction: {
     type: String,
     default: 'horizontal',
-    validator: (value) => ['horizontal', 'vertical'].includes(value),
+    validator: (value: string) => ['horizontal', 'vertical'].includes(value),
   },
   isIcon: {
     type: Boolean,
@@ -40,7 +40,13 @@ const { theme, size, direction } = defineProps({
 <template>
   <button
     type="button"
-    :class="['uds-btn', `uds-btn--${theme}`, `uds-btn--${size}`, `uds-btn--${direction}`, { 'uds-btn--icon': isIcon }]"
+    :class="[
+      'uds-btn',
+      `uds-btn--${theme}`,
+      `uds-btn--${size}`,
+      `uds-btn--${direction}`,
+      { 'uds-btn--icon': isIcon },
+    ]"
   >
     <slot />
   </button>

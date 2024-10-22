@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
-import ButtonComponent from './ButtonComponent.ce.vue'
+import ButtonComponent from '@/components/button/ButtonComponent.ce.vue'
 
 const themes = [
   'fill-purple',
@@ -33,20 +33,39 @@ const state = ref({
       <HstSelect v-model="state.theme" :options="themes" title="Theme" />
       <HstRadio v-model="state.size" :options="sizes" title="Size" />
       <HstCheckbox v-model="state.disabled" title="Disabled" />
-      <HstRadio v-model="state.direction" :options="directions" title="Direction" />
+      <HstRadio
+        v-model="state.direction"
+        :options="directions"
+        title="Direction"
+      />
     </template>
 
     <Variant title="Default">
-      <ButtonComponent :theme="state.theme" :size="state.size" :disabled="state.disabled">Click me!</ButtonComponent>
+      <ButtonComponent
+        :theme="state.theme"
+        :size="state.size"
+        :disabled="state.disabled"
+        >Click me!</ButtonComponent
+      >
     </Variant>
     <Variant title="Text + Icon">
-      <ButtonComponent :theme="state.theme" :size="state.size" :disabled="state.disabled" :direction="state.direction">
+      <ButtonComponent
+        :theme="state.theme"
+        :size="state.size"
+        :disabled="state.disabled"
+        :direction="state.direction"
+      >
         <span class="uds-icon uds-icon-ultra_games"></span>
         Click me!
       </ButtonComponent>
     </Variant>
     <Variant title="Icon">
-      <ButtonComponent :is-icon="true" :theme="state.theme" :size="state.size" :disabled="state.disabled">
+      <ButtonComponent
+        :is-icon="true"
+        :theme="state.theme"
+        :size="state.size"
+        :disabled="state.disabled"
+      >
         <span class="uds-icon uds-icon-ultra_games"></span>
       </ButtonComponent>
     </Variant>
