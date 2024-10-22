@@ -65,7 +65,7 @@
     font: inherit;
   }
 
-  :root {
+  :root[data-uds-theme='nebula'] {
     color-scheme: dark;
     color: tokens.$color-text-primary;
     background-color: tokens.$color-background-main;
