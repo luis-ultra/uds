@@ -22,7 +22,7 @@
 @mixin create-typography-classes() {
   @each $family-key, $family-value in map-get(tokens.$tokens, 'typography', 'font', 'family') {
     @each $weight-key, $weight-value in map-get(tokens.$tokens, 'typography', 'font', 'weight') {
-      .typography-#{$family-key}-#{$weight-key} {
+      .#{config.$prefix}typography-#{$family-key}-#{$weight-key} {
         @include typography($family-key, $weight-key);
       }
     }
