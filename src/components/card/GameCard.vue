@@ -8,14 +8,19 @@ interface Props {
   header: string
   subtitle: string
   imageSrc: string
-  helpLabel: string
-  color: GameCardColor
-  variant: GameCardVariant
-  loadingPercentage: number
-  displayLoadingPercentage: boolean
+  helpLabel?: string
+  color?: GameCardColor
+  variant?: GameCardVariant
+  loadingPercentage?: number
+  displayLoadingPercentage?: boolean
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  color: 'white',
+  variant: 'default',
+  loadingPercentage: 0,
+  displayLoadingPercentage: false,
+})
 
 // Helper to calculate the progress bar in the loading circle
 const loadingSvgCircleRadius = 14
