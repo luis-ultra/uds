@@ -235,17 +235,20 @@ $utilities: (
 
   // Materials
   // todo: values are not in tokens
-  'shadows':
+  'shadow':
     (
       property: box-shadow,
       class: #{config.$prefix}shadow,
       values: (
-        sm: '0px 4px 8px 0px rgba(0, 0, 0, 0.25), 0px 0px 4px 0px rgba(0, 0, 0, 0.12)',
-        md: '0px 8px 16px 0px rgba(0, 0, 0, 0.25), 0px 4px 8px 0px rgba(0, 0, 0, 0.12)',
-        lg: '0px 16px 32px 0px rgba(0, 0, 0, 0.25), 0px 8px 16px 0px rgba(0, 0, 0, 0.12)',
+        sm:
+          '0px 4px 8px 0px rgba(0, 0, 0, 0.25), 0px 0px 4px 0px rgba(0, 0, 0, 0.12)',
+        md:
+          '0px 8px 16px 0px rgba(0, 0, 0, 0.25), 0px 4px 8px 0px rgba(0, 0, 0, 0.12)',
+        lg:
+          '0px 16px 32px 0px rgba(0, 0, 0, 0.25), 0px 8px 16px 0px rgba(0, 0, 0, 0.12)',
       ),
     ),
-  'blurs': (
+  'blur': (
     property: backdrop-filter,
     class: #{config.$prefix}blur,
     values: (
@@ -443,7 +446,8 @@ $utilities: (
       print: true,
       property: display,
       class: d,
-      values: inline inline-block block grid inline-grid table table-row table-cell flex inline-flex none,
+      values: inline inline-block block grid inline-grid table table-row
+        table-cell flex inline-flex none,
     ),
   // scss-docs-start utils-overflow
   'overflow':
