@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { defineCustomElement } from 'vue'
-import ButtonComponent from '@/components/button/ButtonComponent.ce.vue'
+import ButtonComponent from '@/components/button/ButtonComponent.vue'
 
-customElements.define('uds-button', defineCustomElement(ButtonComponent))
+customElements.define(
+  'uds-button',
+  defineCustomElement(ButtonComponent, { shadowRoot: false }),
+)
 </script>
 
 <template>

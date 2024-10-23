@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ButtonComponent from '@/components/button/ButtonComponent.ce.vue'
+import ButtonComponent from './ButtonComponent.vue'
 
 const themes = [
   'fill-purple',
