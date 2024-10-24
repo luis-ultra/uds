@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../config';
 @use '../../design-system/nebula/scss/tokens.scss';
 
@@ -14,9 +15,17 @@
 ///     @include interactive-surface-bg('solid', 'purple');
 ///   }
 @mixin interactive-surface-bg($group, $type) {
-  $interactive-surfaces: map-get(tokens.$tokens, 'color', 'interactive-surface', $group, $type);
-  background-color: map-get($interactive-surfaces, 'enabled');
-  @each $interactive-surface-key, $interactive-surface-value in map-remove($interactive-surfaces, 'enabled') {
+  $interactive-surfaces: map.get(
+    tokens.$tokens,
+    'color',
+    'interactive-surface',
+    $group,
+    $type
+  );
+  background-color: map.get($interactive-surfaces, 'enabled');
+  @each $interactive-surface-key,
+    $interactive-surface-value in map.remove($interactive-surfaces, 'enabled')
+  {
     @if $interactive-surface-key == 'disabled' {
       &:#{$interactive-surface-key},
       &[#{$interactive-surface-key}] {

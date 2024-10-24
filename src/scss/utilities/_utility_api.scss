@@ -1,9 +1,11 @@
+@use 'sass:map';
+
 @mixin get-utility($utility, $value) {
-  $properties: map-get($utility, property);
-  $values: map-get($utility, values);
+  $properties: map.get($utility, property);
+  $values: map.get($utility, values);
 
   // Check if the value exists in the values map
-  $property-value: map-get($values, $value);
+  $property-value: map.get($values, $value);
 
   // If properties are a string, convert to a list
   @if type-of($properties) == 'string' {
@@ -18,4 +20,4 @@
 
 // Example usage
 // Based on the utilities map: src/scss/utilities/_variables.scss
-// @include get-utility(map-get($utilities, 'margin-x'), '2');
+// @include get-utility(map.get($utilities, 'margin-x'), '2');

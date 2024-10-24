@@ -145,12 +145,22 @@ $component-selector: '.#{scss.$prefix}game-card';
   flex-direction: column;
   gap: scss.$spacing-spacing-3;
   padding: scss.$spacing-spacing-2;
+  margin: -(scss.$spacing-spacing-2);
   border-radius: scss.$radius-radius-4;
   color: scss.$color-text-tertiary;
-  min-width: 256px;
-  max-width: 320px;
+  width: 192px; // smallest xs display
   @include scss.typography('body-m');
   @include scss.transition();
+
+  @include scss.media-breakpoint-up('sm') {
+    width: 213px;
+  }
+  @include scss.media-breakpoint-up('md') {
+    width: 277px;
+  }
+  @include scss.media-breakpoint-up('lg') {
+    width: 283.43px;
+  }
 
   &:hover {
     background-color: scss.$color-interactive-surface-transparent-white-enabled;
@@ -257,6 +267,12 @@ $component-selector: '.#{scss.$prefix}game-card';
         background-color: scss.$color-background-white-light;
         border-radius: scss.$radius-radius-4;
       }
+    }
+  }
+
+  @include scss.media-breakpoint-down('sm') {
+    &__subtitle {
+      @include scss.typography('caption-l', 'regular');
     }
   }
 }

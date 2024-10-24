@@ -1,8 +1,9 @@
+@use 'sass:map';
 @use '../config';
 @use '../../design-system/nebula/scss/tokens.scss';
 
 @mixin create-icon-classes() {
-  $icons-assets: map-get(tokens.$tokens, 'content', 'icon-glyph');
+  $icons-assets: map.get(tokens.$tokens, 'content', 'icon-glyph');
 
   .#{config.$prefix}icon {
     font-family: '#{tokens.$iconography-font-family-icon}';
@@ -16,7 +17,7 @@
     }
 
     // Icon sizes
-    $icon-sizes: map-get(tokens.$tokens, 'iconography', 'font', 'size');
+    $icon-sizes: map.get(tokens.$tokens, 'iconography', 'font', 'size');
     @each $icon-size-key, $icon-size-value in $icon-sizes {
       &--#{$icon-size-key}::before {
         font-size: $icon-size-value;
@@ -25,7 +26,7 @@
     }
 
     // Icon weights
-    $icon-weights: map-get(tokens.$tokens, 'iconography', 'font', 'weight');
+    $icon-weights: map.get(tokens.$tokens, 'iconography', 'font', 'weight');
     @each $icon-weight-key, $icon-weight-value in $icon-weights {
       &--#{$icon-weight-key}::before {
         font-weight: '#{$icon-weight-value}';

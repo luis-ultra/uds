@@ -1,24 +1,25 @@
+@use 'sass:map';
 @use '../config';
 @use '../../design-system/nebula/scss/tokens.scss';
 
-$spacing-map: map-get(tokens.$tokens, 'spacing', 'spacing');
+$spacing-map: map.get(tokens.$tokens, 'spacing', 'spacing');
 
 // Bootstrap docs: https://getbootstrap.com/docs/5.3/utilities/api/
 $utilities: (
   // Background colors
-  'background-color':
+  'bg-color':
     (
       property: background-color,
       class: #{config.$prefix}bg,
-      values: map-get(tokens.$tokens, 'color', 'background'),
+      values: map.get(tokens.$tokens, 'color', 'background'),
     ),
 
   // Text colors
-  'color':
+  'text':
     (
       property: color,
       class: #{config.$prefix}text,
-      values: map-get(tokens.$tokens, 'color', 'text'),
+      values: map.get(tokens.$tokens, 'color', 'text'),
     ),
 
   // Typography
@@ -26,22 +27,22 @@ $utilities: (
     (
       property: font-family,
       class: #{config.$prefix}font,
-      values: map-get(tokens.$tokens, 'typography', 'font', 'family'),
+      values: map.get(tokens.$tokens, 'typography', 'font', 'family'),
     ),
   'font-size': (
     property: font-size,
     class: #{config.$prefix}fs,
-    values: map-get(tokens.$tokens, 'typography', 'font', 'size'),
+    values: map.get(tokens.$tokens, 'typography', 'font', 'size'),
   ),
   'font-weight': (
     property: font-weight,
     class: #{config.$prefix}fw,
-    values: map-get(tokens.$tokens, 'typography', 'font', 'weight'),
+    values: map.get(tokens.$tokens, 'typography', 'font', 'weight'),
   ),
   'line-height': (
     property: line-height,
     class: #{config.$prefix}lh,
-    values: map-get(tokens.$tokens, 'typography', 'font', 'line-height'),
+    values: map.get(tokens.$tokens, 'typography', 'font', 'line-height'),
   ),
 
   // Spacing
@@ -50,7 +51,7 @@ $utilities: (
       property: margin,
       class: #{config.$prefix}m,
       values:
-        map-merge(
+        map.merge(
           $spacing-map,
           (
             auto: auto,
@@ -61,7 +62,7 @@ $utilities: (
     property: margin-right margin-left,
     class: #{config.$prefix}mx,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -72,7 +73,7 @@ $utilities: (
     property: margin-top margin-bottom,
     class: #{config.$prefix}my,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -83,7 +84,7 @@ $utilities: (
     property: margin-top,
     class: #{config.$prefix}mt,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -94,7 +95,7 @@ $utilities: (
     property: margin-right,
     class: #{config.$prefix}me,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -105,7 +106,7 @@ $utilities: (
     property: margin-bottom,
     class: #{config.$prefix}mb,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -116,7 +117,7 @@ $utilities: (
     property: margin-left,
     class: #{config.$prefix}ms,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -127,7 +128,7 @@ $utilities: (
     property: padding,
     class: #{config.$prefix}p,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -138,7 +139,7 @@ $utilities: (
     property: padding-right padding-left,
     class: #{config.$prefix}px,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -149,7 +150,7 @@ $utilities: (
     property: padding-top padding-bottom,
     class: #{config.$prefix}py,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -160,7 +161,7 @@ $utilities: (
     property: padding-top,
     class: #{config.$prefix}pt,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -171,7 +172,7 @@ $utilities: (
     property: padding-right,
     class: #{config.$prefix}pe,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -182,7 +183,7 @@ $utilities: (
     property: padding-bottom,
     class: #{config.$prefix}pb,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -193,7 +194,7 @@ $utilities: (
     property: padding-left,
     class: #{config.$prefix}ps,
     values:
-      map-merge(
+      map.merge(
         $spacing-map,
         (
           auto: auto,
@@ -206,17 +207,17 @@ $utilities: (
     (
       property: gap,
       class: #{config.$prefix}gap,
-      values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+      values: map.get(tokens.$tokens, 'spacing', 'spacing'),
     ),
   'row-gap': (
     property: row-gap,
     class: #{config.$prefix}row-gap,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values: map.get(tokens.$tokens, 'spacing', 'spacing'),
   ),
   'column-gap': (
     property: column-gap,
     class: #{config.$prefix}column-gap,
-    values: map-get(tokens.$tokens, 'spacing', 'spacing'),
+    values: map.get(tokens.$tokens, 'spacing', 'spacing'),
   ),
 
   // Border radius
@@ -225,8 +226,8 @@ $utilities: (
       property: border-radius,
       class: #{config.$prefix}rounded,
       values:
-        map-merge(
-          map-get(tokens.$tokens, 'radius', 'radius'),
+        map.merge(
+          map.get(tokens.$tokens, 'radius', 'radius'),
           (
             circle: 50%,
           )

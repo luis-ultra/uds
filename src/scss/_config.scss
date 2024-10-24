@@ -1,3 +1,4 @@
+@use 'sass:map';
 // Design System docs: https://zeroheight.com/729c3c0c1/p/110c12-grids--layouts/b/37754a
 @use '../design-system/nebula/scss/tokens';
 
@@ -10,5 +11,5 @@ $grid-breakpoints: (
   lg: 1280px,
   xl: 1600px,
 );
-$container-max-widths: map-remove($grid-breakpoints, 'xs');
+$container-max-widths: map.remove($grid-breakpoints, 'xs');
 $grid-gutter-width: tokens.$spacing-spacing-16;

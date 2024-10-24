@@ -83,13 +83,14 @@ function scroll(direction: 'next' | 'prev') {
 </template>
 
 <style lang="scss">
+@use 'sass:map';
 @use '@/scss';
 
 .uds-carousel-base {
   display: flex;
   flex-direction: column;
   color: scss.$color-text-primary;
-  @include scss.get-utility(map-get(scss.$utilities, 'gap'), '4');
+  @include scss.get-utility(map.get(scss.$utilities, 'gap'), '4');
 
   &__header {
     display: flex;
@@ -98,12 +99,12 @@ function scroll(direction: 'next' | 'prev') {
       flex: 1;
       display: flex;
       align-items: center;
-      @include scss.get-utility(map-get(scss.$utilities, 'gap'), '1');
+      @include scss.get-utility(map.get(scss.$utilities, 'gap'), '1');
     }
 
     &-actions {
       display: flex;
-      @include scss.get-utility(map-get(scss.$utilities, 'gap'), '1');
+      @include scss.get-utility(map.get(scss.$utilities, 'gap'), '1');
     }
   }
 
@@ -120,7 +121,7 @@ function scroll(direction: 'next' | 'prev') {
       list-style: none;
       margin: 0;
       padding: 0;
-      @include scss.get-utility(map-get(scss.$utilities, 'gap'), '8');
+      @include scss.get-utility(map.get(scss.$utilities, 'gap'), '8');
 
       li {
         scroll-snap-align: start;

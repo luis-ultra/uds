@@ -53,6 +53,7 @@ const { theme, size, direction } = defineProps({
 </template>
 
 <style lang="scss">
+@use 'sass:map';
 @use '@/scss';
 
 .#{scss.$prefix}btn {
@@ -169,22 +170,22 @@ const { theme, size, direction } = defineProps({
   &--transparent {
     &-purple {
       @include scss.interactive-surface-bg('transparent', 'purple');
-      @include scss.get-utility(map-get(scss.$utilities, 'blur'), '32');
+      @include scss.get-utility(map.get(scss.$utilities, 'blur'), '32');
       color: scss.$color-text-purple;
     }
     &-white {
       @include scss.interactive-surface-bg('transparent', 'white');
-      @include scss.get-utility(map-get(scss.$utilities, 'blur'), '32');
+      @include scss.get-utility(map.get(scss.$utilities, 'blur'), '32');
       color: scss.$color-text-primary;
     }
     &-red {
       @include scss.interactive-surface-bg('transparent', 'red');
-      @include scss.get-utility(map-get(scss.$utilities, 'blur'), '32');
+      @include scss.get-utility(map.get(scss.$utilities, 'blur'), '32');
       color: scss.$color-text-red;
     }
     &-black {
       @include scss.interactive-surface-bg('transparent', 'black');
-      @include scss.get-utility(map-get(scss.$utilities, 'blur'), '32');
+      @include scss.get-utility(map.get(scss.$utilities, 'blur'), '32');
       color: scss.$color-text-primary;
     }
   }

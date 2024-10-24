@@ -26,9 +26,3 @@ import ButtonComponent from '../button/ButtonComponent.vue'
 import GameCard from '../card/GameCard.vue'
 import CarouselBaseComponent from './CarouselBaseComponent.vue'
 </script>
-<style>
-li {
-  /* todo: make it responsive */
-  width: 272px;
-}
-</style>
