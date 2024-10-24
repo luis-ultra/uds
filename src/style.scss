@@ -1,57 +1,13 @@
 @use 'scss';
+@use 'scss/bootstrap';
 
-// Bootstrap docs: https://getbootstrap.com/docs/5.3/customize/sass/#importing
-// Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import '../node_modules/bootstrap/scss/functions';
-
-// Include any default variable overrides here
-// Design System docs: https://zeroheight.com/729c3c0c1/p/110c12-grids--layouts/b/37754a
-$prefix: scss.$prefix;
-$enable-important-utilities: false;
-$grid-breakpoints: (
-  xs: 0,
-  sm: 768px,
-  md: 1024px,
-  lg: 1280px,
-  xl: 1600px,
-);
-$container-max-widths: map-remove($grid-breakpoints, 'xs');
-$grid-gutter-width: scss.$spacing-spacing-16;
+// Add custom styles here
+@use 'design-system/nebula/css/tokens'; // css variables
 
 @include scss.declare-font-faces();
 
 // Reset default styles
 @include scss.reset-theme-nebula();
-
-// Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-@import '../node_modules/bootstrap/scss/variables';
-
-// Include any default map overrides here
-
-// Include remainder of required parts
-@import '../node_modules/bootstrap/scss/maps';
-@import '../node_modules/bootstrap/scss/mixins';
-// @import '../node_modules/bootstrap/scss/root';
-
-// Include bootstrap utilities
-@import '../node_modules/bootstrap/scss/utilities';
-// @import '../node_modules/bootstrap/scss/reboot';
-// @import '../node_modules/bootstrap/scss/type';
-// @import '../node_modules/bootstrap/scss/images';
-// @import '../node_modules/bootstrap/scss/containers';
-@import './scss/custom/bootstrap/containers'; // custom containers
-// @import '../node_modules/bootstrap/scss/grid';
-@import './scss/custom/bootstrap/grid'; // custom grid
-// @import '../node_modules/bootstrap/scss/helpers';
-
-// Override bootstrap utilities
-$utilities: scss.$utilities;
-
-// Include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import '../node_modules/bootstrap/scss/utilities/api';
-
-// Add custom styles here
-@import 'design-system/nebula/css/tokens'; // css variables
 
 @include scss.create-typography-classes();
 @include scss.create-icon-classes();

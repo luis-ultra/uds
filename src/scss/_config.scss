@@ -1,1 +1,14 @@
+// Design System docs: https://zeroheight.com/729c3c0c1/p/110c12-grids--layouts/b/37754a
+@use '../design-system/nebula/scss/tokens';
+
 $prefix: 'uds-';
+$enable-important-utilities: false;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 1024px,
+  lg: 1280px,
+  xl: 1600px,
+);
+$container-max-widths: map-remove($grid-breakpoints, 'xs');
+$grid-gutter-width: tokens.$spacing-spacing-16;
