@@ -28,8 +28,15 @@
     // Icon weights
     $icon-weights: map.get(tokens.$tokens, 'iconography', 'font', 'weight');
     @each $icon-weight-key, $icon-weight-value in $icon-weights {
+      $font-weight: map.get(
+        tokens.$tokens,
+        'typography',
+        'font',
+        'weight',
+        $icon-weight-key
+      );
       &--#{$icon-weight-key}::before {
-        font-weight: '#{$icon-weight-value}';
+        font-weight: #{$font-weight};
       }
     }
   }
