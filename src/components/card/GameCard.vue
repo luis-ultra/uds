@@ -145,7 +145,6 @@ $component-selector: '.#{scss.$prefix}game-card';
   flex-direction: column;
   gap: scss.$spacing-spacing-3;
   padding: scss.$spacing-spacing-2;
-  margin: -(scss.$spacing-spacing-2);
   border-radius: scss.$radius-radius-4;
   color: scss.$color-text-tertiary;
   width: 192px; // smallest xs display

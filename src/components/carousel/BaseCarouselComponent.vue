@@ -25,7 +25,6 @@ const itemsBySlide = computed(() => {
 })
 
 function scrollToItem(index: number) {
-  console.log('🚀 ~ scrollToItem ~ index:', index)
   const offsetLeft = items.value?.[index].offsetLeft
   list.value?.scrollTo({ left: offsetLeft, behavior: 'smooth' })
 }
@@ -121,13 +120,11 @@ function scroll(direction: 'next' | 'prev') {
       list-style: none;
       margin: 0;
       padding: 0;
-      @include scss.get-utility(map.get(scss.$utilities, 'gap'), '8');
 
       li {
         scroll-snap-align: start;
         display: flex;
         flex-shrink: 0;
-        max-width: 272px; //todo: make this dynamic breakpoint based
       }
     }
   }
