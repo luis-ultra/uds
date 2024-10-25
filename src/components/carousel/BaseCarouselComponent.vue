@@ -7,7 +7,7 @@ defineProps<{
   headerTitle: string
 }>()
 
-const emit = defineEmits(['title-click'])
+const emit = defineEmits(['titleClick'])
 
 const itemIndex = ref(0)
 
@@ -43,16 +43,13 @@ function scroll(direction: 'next' | 'prev') {
   <div class="uds-carousel-base">
     <div class="uds-carousel-base__header">
       <div class="uds-carousel-base__header-title">
-        <h3
-          class="uds-typography-headline-s-black"
-          @click="emit('title-click')"
-        >
+        <h3 class="uds-typography-headline-s-black" @click="emit('titleClick')">
           {{ headerTitle }}
         </h3>
         <ButtonComponent
           theme="ghost-white"
           :is-icon="true"
-          @click="emit('title-click')"
+          @click="emit('titleClick')"
         >
           <IconComponent name="chevron_right" />
         </ButtonComponent>
@@ -74,8 +71,8 @@ function scroll(direction: 'next' | 'prev') {
         </ButtonComponent>
       </div>
     </div>
-    <div ref="slidesContainer" class="uds-carousel-base__slides">
-      <!-- example: <ul> <li>Item 1</li> </ul> -->
+    <div ref="slidesContainer">
+      <!-- example: <ul class="uds-carousel-base__slides"> <li class="uds-carousel-base__item">Item 1</li> </ul> -->
       <slot />
     </div>
   </div>
@@ -108,25 +105,25 @@ function scroll(direction: 'next' | 'prev') {
   }
 
   &__slides {
-    ul {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-y: visible;
-      overflow-x: scroll;
-      scrollbar-width: none;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scroll-margin-inline-start: 2.5rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: visible;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-margin-inline-start: 2.5rem;
 
-      li {
-        scroll-snap-align: start;
-        display: flex;
-        flex-shrink: 0;
-      }
-    }
+    // for lists
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    scroll-snap-align: start;
+    display: flex;
+    flex-shrink: 0;
   }
 }
 </style>

@@ -137,34 +137,37 @@ const loadingStrokeDashOffset = computed(() => {
 <style lang="scss">
 @use '@/scss';
 
-$component-selector: '.#{scss.$prefix}game-card';
+$component-selector: '#{scss.$prefix}game-card';
+:root {
+  --#{$component-selector}-min-width: 140px;
+  --#{$component-selector}-max-width: 284px;
 
-#{$component-selector} {
+  @include scss.media-breakpoint-up('sm') {
+    --#{$component-selector}-min-width: 200px;
+  }
+  @include scss.media-breakpoint-up('md') {
+    --#{$component-selector}-min-width: 256px;
+  }
+}
+
+.#{$component-selector} {
   position: relative;
+  flex: 1 0 0;
   display: flex;
   flex-direction: column;
   gap: scss.$spacing-spacing-3;
   padding: scss.$spacing-spacing-2;
   border-radius: scss.$radius-radius-4;
   color: scss.$color-text-tertiary;
-  width: 192px; // smallest xs display
+  min-width: var(--#{$component-selector}-min-width);
+  max-width: var(--#{$component-selector}-max-width);
   @include scss.typography('body-m');
   @include scss.transition();
-
-  @include scss.media-breakpoint-up('sm') {
-    width: 213px;
-  }
-  @include scss.media-breakpoint-up('md') {
-    width: 277px;
-  }
-  @include scss.media-breakpoint-up('lg') {
-    width: 283.43px;
-  }
 
   &:hover {
     background-color: scss.$color-interactive-surface-transparent-white-enabled;
 
-    #{$component-selector}__figure__header {
+    .#{$component-selector}__figure__header {
       opacity: 1;
       position: absolute;
       top: scss.$spacing-spacing-2;
@@ -244,7 +247,7 @@ $component-selector: '.#{scss.$prefix}game-card';
   &--status-skeleton {
     width: 100%;
 
-    #{$component-selector} {
+    .#{$component-selector} {
       &__subtitle {
         width: 64%;
       }

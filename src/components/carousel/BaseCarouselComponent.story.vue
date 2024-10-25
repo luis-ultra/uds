@@ -1,10 +1,10 @@
 <template>
   <Story>
     <Variant title="Default">
-      <CarouselBaseComponent header-title="Carousel">
-        <ul>
-          <li class="first-slide">Example</li>
-          <li v-for="index in 15" :key="index">
+      <BaseCarouselComponent header-title="Carousel">
+        <ul class="uds-carousel-base__slides">
+          <li class="uds-carousel-base__item first-slide">Example</li>
+          <li v-for="index in 15" :key="index" class="uds-carousel-base__item">
             <GameCard
               :header="`Placeholder Header ${index}`"
               subtitle="Placeholder Subtitle"
@@ -18,14 +18,14 @@
             </GameCard>
           </li>
         </ul>
-      </CarouselBaseComponent>
+      </BaseCarouselComponent>
     </Variant>
   </Story>
 </template>
 <script setup lang="ts">
 import ButtonComponent from '../button/ButtonComponent.vue'
 import GameCard from '../card/GameCard.vue'
-import CarouselBaseComponent from './BaseCarouselComponent.vue'
+import BaseCarouselComponent from './BaseCarouselComponent.vue'
 </script>
 <style>
 .first-slide {
